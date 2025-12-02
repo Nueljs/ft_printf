@@ -6,28 +6,39 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:16 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/01 13:02:08 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/02 18:35:07 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+void	find_type(char c, va_list *args)
+{
+	if (c == 'c')
+		ft_putchar_fd((char)va_arg(*args, int), 1);
+	else if (c == 's')
+		ft_putstr_fd(va_arg(*args, char *), 1);
+	else if (c == 'p')
+		ft_pvoid(va_arg(*args, void *));
+	else if (c == 'd' || c == 'i')
+		ft_putnbr_fd(va_arg(*args, int), 1);
+	else if (c ==)
+	
+}
+
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
-	int		params;
 
 	i = 0;
-	params = 0;
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
-		{
-			// ft_putchar_fd(str[i], STDOUT_FILENO);
-			find_type(str[++i], void *);
-		}
+			find_type(str[++i], &args);
+		i++;
+	}
 }
 
 
