@@ -6,14 +6,13 @@
 #    By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/24 17:35:22 by macerver          #+#    #+#              #
-#    Updated: 2025/11/27 17:11:19 by macerver         ###   ########.fr        #
+#    Updated: 2025/12/04 05:54:44 by macerver         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
 CC := cc
-CFLAGS := -Wall -Werror -Wextra -I
-INCLUDE := libft.h
+CFLAGS := -Wall -Werror -Wextra -I.
 SRC = ft_bzero.c ft_isascii.c ft_isalnum.c ft_isalpha.c ft_isdigit.c ft_isprint.c \
 	ft_memset.c ft_strlen.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
 	ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c \
@@ -34,7 +33,7 @@ $(NAME): $(OBJ)
 	$(AR) $@ $^
 
 %.o: %.c 
-	$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 	$(RM) $(OBJ) $(BONUS_OBJS)

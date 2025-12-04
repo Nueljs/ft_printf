@@ -6,7 +6,7 @@
 #    By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/24 17:35:22 by macerver          #+#    #+#              #
-#    Updated: 2025/12/03 06:15:55 by macerver         ###   ########.fr        #
+#    Updated: 2025/12/04 05:51:25 by macerver         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	cp $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJ)
 
-%.o: %.c libftprintf
+%.o: %.c ft_printf.h libft/libft.h
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
@@ -46,4 +46,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
