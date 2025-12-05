@@ -6,7 +6,7 @@
 #    By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/24 17:35:22 by macerver          #+#    #+#              #
-#    Updated: 2025/12/04 05:51:25 by macerver         ###   ########.fr        #
+#    Updated: 2025/12/05 06:14:57 by macerver         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ INCLUDE := -I. -Ilibft
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC = ft_printf.c ft_putunbr.c
+SRC = ft_printf.c ft_putunbr.c ft_pvoid.c \
+	hex_nlower.c hex_nupper.c
 OBJ = $(SRC:.c=.o)
 
 AR := ar rcs
