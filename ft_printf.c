@@ -6,14 +6,17 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:16 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/05 06:25:04 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:23:13 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	find_type(char c, va_list *args)
+int	find_type(char c, va_list *args)
 {
+	int	len;
+
+	len = 0;
 	if (c == 'c')
 		ft_putchar_fd((char)va_arg(*args, int), 1);
 	else if (c == 's')
@@ -28,11 +31,12 @@ void	find_type(char c, va_list *args)
 	else if (c == 'u')
 		ft_putunbr_fd(va_arg(*args, int), 1);
 	else if (c == 'x')
-		hex_nlower(va_arg(*args, int));
+		return (len + hex_nlower(va_arg(*args,unsigned int)));
 	else if (c == 'X')
-		hex_nupper(va_arg(*args, int));
+		hex_nupper(va_arg(*args,unsigned int));
 	else
 		ft_putchar_fd('%', 1);
+	return (len);
 	
 }
 
@@ -40,30 +44,39 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
-
+	int		len;
+	
 	i = 0;
+	len = 0;
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
-			find_type(str[++i], &args);
+			len += find_type(str[++i], &args);
+		else
+			ft_putchar_fd(str[i], 1);
 		i++;
 	}
-	return	(0);
+	return (len + ft_strlen(str));
 }
 
-// int	main(void)
-// {
-// 	void	*p;
+int	main(void)
+{
+	void	*p;
 	
-// 	// ft_printf("%u", -62);
-// 	printf("%p\n", p);
-// 	ft_printf("%p", p);
-// 	printf("%x\n", 82);
-// 	ft_printf("%x", 82);
-// 	printf("%x\n", -46546);
-// 	ft_printf("%x", -46546);
+	// ft_printf("%u", -62);
+	// printf("%d",printf("%p eeeeeeeeeeeeeeeeeee", p));
+	// ft_printf("%p", p);
+	// printf("%x\n", 82);
+	// ft_printf("%x", 82);
+	// printf("%x\n", -46546);
+	// printf("%x\n", -1);
+	printf("%d\n", printf("Mi numero es: %x", -1));
+	printf("%d\n", ft_printf("Mi numero es: %x", -1));
+	// write(1, "\n", 1);
+	// ft_printf("%x", -46546);
+	// ft_printf(" %c", '0');
 	
-// 	// return 0;
-// }
+	// return 0;
+}
 

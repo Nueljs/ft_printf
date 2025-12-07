@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 11:28:53 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/13 19:27:37 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:21:07 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 int	ft_strlen(const char *str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (str[i])
+	{
+		if (str[i] == '%' && str[i + 1])
+			j += 2;
 		i++;
-	return (i);
+	}
+	return (i - j);
 }
