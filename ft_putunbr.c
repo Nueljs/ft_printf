@@ -6,22 +6,40 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 05:42:58 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/05 06:25:52 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:16:41 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putunbr_fd(int n, int fd)
+static int	count_digits(long n)
 {
-	long	num;
-	char	c;
+	int	len;
 
-	num = n;
-	if (num < 0)
-		num = -num;
-	if (num >= 10)
-		ft_putunbr_fd(num / 10, fd);
-	c = num % 10 + '0';
+	len = 0;
+	if (n < 0)
+		len++;
+	if (n == 0)
+		return (1);
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+int	ft_putunbr_fd(unsigned long n, int fd)
+{
+	char	c;
+	int		len;
+
+	len = count_digits((long) n);
+	if (n < 0)
+		n = -n;
+	if (n >= 10)
+		ft_putunbr_fd(n / 10, fd);
+	c = n % 10 + '0';
 	write(fd, &c, 1);
+	return (len);
 }

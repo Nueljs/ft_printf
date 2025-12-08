@@ -6,16 +6,14 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:46:19 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/06 22:09:29 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/08 11:40:07 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c)
 {
-	if(!c)
-		return (0);
-	write(fd, &c, 1);
+	write(1, &c, 1);
 	return (1);
 }
