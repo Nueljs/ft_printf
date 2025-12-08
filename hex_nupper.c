@@ -6,13 +6,13 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 06:01:01 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/07 12:26:02 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:37:49 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	hex_nupper(unsigned int	n)
+int	hex_nupper(unsigned int	n)
 {
 	long		num;
 	char		c;

@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:16 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/07 12:23:13 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:43:16 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	find_type(char c, va_list *args)
 
 	len = 0;
 	if (c == 'c')
-		ft_putchar_fd((char)va_arg(*args, int), 1);
+		return (len + ft_putchar_fd((char)va_arg(*args, int), 1));
 	else if (c == 's')
 		ft_putstr_fd(va_arg(*args, char *), 1);
 	else if (c == 'p')
@@ -33,7 +33,7 @@ int	find_type(char c, va_list *args)
 	else if (c == 'x')
 		return (len + hex_nlower(va_arg(*args,unsigned int)));
 	else if (c == 'X')
-		hex_nupper(va_arg(*args,unsigned int));
+		return (len + hex_nupper(va_arg(*args,unsigned int)));
 	else
 		ft_putchar_fd('%', 1);
 	return (len);
@@ -73,6 +73,10 @@ int	main(void)
 	// printf("%x\n", -1);
 	printf("%d\n", printf("Mi numero es: %x", -1));
 	printf("%d\n", ft_printf("Mi numero es: %x", -1));
+	printf("%d\n", printf("Mi numero es: %X", -1));
+	printf("%d\n", ft_printf("Mi numero es: %X", -1));
+	printf("%d\n", printf("Mi char es: %c", 'p'));
+	printf("%d\n", ft_printf("Mi char es: %c", 'p'));
 	// write(1, "\n", 1);
 	// ft_printf("%x", -46546);
 	// ft_printf(" %c", '0');
