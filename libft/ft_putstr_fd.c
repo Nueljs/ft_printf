@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:25:57 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/08 11:47:29 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/09 10:27:33 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	ft_putstr_fd(char *s)
 {
 	int	i;
 
-	i = 0;
 	if (!s)
 		return (write(1, "(null)", 6));
+	i = 0;
 	while (s[i])
 	{
 		write(1, &s[i], 1);
