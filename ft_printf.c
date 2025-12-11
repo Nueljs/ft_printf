@@ -6,13 +6,13 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:16 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/09 10:52:15 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/11 11:59:49 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	find_type(char c, va_list args)
+static int	find_type(char c, va_list args)
 {
 	if (c == 'c')
 		return (ft_putchar_fd(va_arg(args, int)));
