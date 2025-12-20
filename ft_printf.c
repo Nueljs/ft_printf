@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:16 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/11 11:59:49 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/20 18:30:02 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1])
+		if (str[i] == '%')
 		{
+			if (!str[i + 1])
+			{
+				va_end(args);
+				return (-1);
+			}
 			i++;
 			len += find_type(str[i], args);
 		}
@@ -56,33 +61,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
-
-// int	main(void)
-// {
-// 	void	*p;
-
-// 	// ft_printf("%u", -62);
-// 	// printf("%d",printf("%p eeeeeeeeeeeeeeeeeee", p));
-// 	// ft_printf("%p", p);
-// 	// printf("%x\n", 82);
-// 	// ft_printf("%x", 82);
-// 	// printf("%x\n", -46546);
-// 	// printf("%x\n", -1);
-// 	// printf("%d\n", printf("Mi numero es: %x", -1));
-// 	// printf("%d\n", ft_printf("Mi numero es: %x", -1));
-// 	// printf("%d\n", printf("Mi numero es: %X", -1));
-// 	// printf("%d\n", ft_printf("Mi numero es: %X", -1));
-// 	// printf("%d\n", printf("Mi char es: %c", 'p'));
-// 	// printf("%d\n", ft_printf("Mi char es: %c", 'p'));
-// 	// printf("%d\n", printf("%r", 'p'));
-//     // printf("%d\n", printf("%r", 'p'));
-//     // printf("%d\n", ft_printf("%r", 'p'));
-// 	printf("%d\n", printf("hola%"));
-//     printf("%d\n", ft_printf("HOLA%"));
-// 	// printf("%d\n", ft_printf("%r", 'p'));
-// 	// write(1, "\n", 1);
-// 	// ft_printf("%x", -46546);
-// 	// ft_printf(" %c", '0');
-
-// 	// return 0;
-// }
