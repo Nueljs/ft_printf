@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 05:42:58 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/08 12:16:41 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/21 17:53:34 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,14 @@ static int	count_digits(long n)
 	return (len);
 }
 
-int	ft_putunbr_fd(unsigned long n, int fd)
+int	ft_putunbr(unsigned long n, int fd)
 {
 	char	c;
 	int		len;
 
 	len = count_digits((long) n);
-	if (n < 0)
-		n = -n;
 	if (n >= 10)
-		ft_putunbr_fd(n / 10, fd);
+		ft_putunbr(n / 10, fd);
 	c = n % 10 + '0';
 	write(fd, &c, 1);
 	return (len);

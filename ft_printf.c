@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:47:16 by macerver          #+#    #+#             */
-/*   Updated: 2025/12/20 18:30:02 by macerver         ###   ########.fr       */
+/*   Updated: 2025/12/21 17:51:57 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	find_type(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr_fd(va_arg(args, int), 1));
 	else if (c == 'u')
-		return (ft_putunbr_fd(va_arg(args, unsigned int), 1));
+		return (ft_putunbr(va_arg(args, unsigned int), 1));
 	else if (c == 'x')
 		return (hex_nlower(va_arg(args, unsigned int)));
 	else if (c == 'X')
